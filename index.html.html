@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhichBingo – Brand Voice & Tone Guide</title>
+<style>
+  :root {
+    --pink: #e91e8c;
+    --pink-light: #fce4f3;
+    --pink-dark: #c0176f;
+    --yellow: #ffd600;
+    --dark: #1a1a2e;
+    --mid: #2d2d44;
+    --light: #f8f4ff;
+    --text: #2c2c2c;
+    --muted: #666;
+    --green: #00c853;
+    --red: #e53935;
+    --card-bg: #fff;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(233,30,140,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: var(--text); line-height: 1.7; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 56px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav-logo { color: var(--pink); font-weight: 800; font-size: 1.1rem; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--pink); }
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #3d1a5e 60%, #6a1a4a 100%);
+    color: #fff; text-align: center; padding: 5rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(233,30,140,0.18) 0%, transparent 60%);
+  }
+  .hero-tag {
+    display: inline-block; background: var(--pink); color: #fff;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 20px; margin-bottom: 1.2rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -1px; line-height: 1.1; }
+  .hero h1 span { color: var(--pink); }
+  .hero p { margin-top: 1rem; font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 520px; margin-inline: auto; }
+  .voice-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
+  .pill span { color: var(--pink); margin: 0 6px; }
+  .scroll-hint { margin-top: 2.5rem; color: rgba(255,255,255,0.45); font-size: 0.8rem; }
+  .scroll-arrow { display: block; font-size: 1.4rem; animation: bounce 1.5s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+  section { padding: 4rem 1.5rem; max-width: 1000px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pink); margin-bottom: 0.5rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: var(--dark); letter-spacing: -0.5px; }
+  .subtitle { color: var(--muted); margin-top: 0.3rem; font-size: 0.95rem; }
+  .qs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+  .qs-card { background: var(--card-bg); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); border-left: 4px solid var(--pink); transition: transform 0.2s; }
+  .qs-card:hover { transform: translateY(-3px); }
+  .qs-num { font-size: 2rem; font-weight: 900; color: var(--pink-light); line-height: 1; margin-bottom: 0.4rem; }
+  .qs-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--dark); margin-bottom: 0.3rem; }
+  .qs-card p { font-size: 0.88rem; color: var(--muted); }
+  .spirit-bg { background: linear-gradient(135deg, var(--dark), #3d1a5e); border-radius: var(--radius); padding: 2.5rem; color: #fff; margin-top: 2rem; }
+  .spirit-quote { font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.9); border-left: 3px solid var(--pink); padding-left: 1rem; margin-bottom: 2rem; }
+  .spirit-desc { color: rgba(255,255,255,0.65); font-size: 0.92rem; margin-bottom: 2rem; }
+  .spirit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .spirit-item { background: rgba(255,255,255,0.07); border-radius: 12px; padding: 1.2rem; }
+  .spirit-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .spirit-item h4 { font-size: 0.85rem; font-weight: 800; color: var(--pink); margin-bottom: 0.3rem; }
+  .spirit-item p { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .gut-check { background: var(--yellow); border-radius: var(--radius); padding: 2rem 2.5rem; text-align: center; margin-top: 2rem; }
+  .gut-check p { font-size: 1.15rem; font-weight: 800; color: var(--dark); }
+  .gut-check span { color: var(--pink-dark); }
+  .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  @media(max-width:600px){ .action-grid { grid-template-columns: 1fr; } }
+  .action-col { border-radius: var(--radius); padding: 1.5rem; }
+  .action-col.yes { background: #e8f5e9; border-top: 4px solid var(--green); }
+  .action-col.no { background: #ffebee; border-top: 4px solid var(--red); }
+  .action-col h3 { font-size: 0.9rem; font-weight: 800; margin-bottom: 1rem; }
+  .action-col.yes h3 { color: var(--green); }
+  .action-col.no h3 { color: var(--red); }
+  .action-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .action-col ul li { font-size: 0.88rem; color: var(--text); background: rgba(255,255,255,0.7); border-radius: 8px; padding: 0.6rem 0.9rem; }
+  .tone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .tone-card { background: #fff; border-radius: var(--radius); padding: 1.3rem; box-shadow: var(--shadow); }
+  .tone-state { font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pink); margin-bottom: 0.3rem; }
+  .tone-card p { font-size: 0.9rem; color: var(--text); font-style: italic; }
+  .fw-table { width: 100%; border-collapse: collapse; margin-top: 2rem; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .fw-table thead { background: var(--dark); color: #fff; }
+  .fw-table th { padding: 1rem 1.2rem; text-align: left; font-size: 0.82rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+  .fw-table tbody tr:nth-child(even) { background: var(--light); }
+  .fw-table tbody tr:nth-child(odd) { background: #fff; }
+  .fw-table td { padding: 0.9rem 1.2rem; font-size: 0.88rem; vertical-align: top; }
+  .fw-table td:first-child { font-weight: 700; color: var(--pink-dark); white-space: nowrap; }
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  @media(max-width:600px){ .rules-grid { grid-template-columns: 1fr; } }
+  .rules-col { border-radius: var(--radius); padding: 1.5rem; }
+  .rules-col.always { background: #e8f5e9; }
+  .rules-col.never { background: #ffebee; }
+  .rules-col h3 { font-size: 0.9rem; font-weight: 800; margin-bottom: 1rem; }
+  .rules-col.always h3 { color: var(--green); }
+  .rules-col.never h3 { color: var(--red); }
+  .rules-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .rules-col ul li { font-size: 0.85rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.4rem; }
+  .rules-col ul li::before { content: '→'; color: var(--muted); flex-shrink: 0; }
+  .length-box { background: #fff; border-radius: var(--radius); padding: 1.5rem; margin-top: 1.2rem; box-shadow: var(--shadow); grid-column: 1/-1; }
+  .length-box h3 { font-size: 0.9rem; font-weight: 800; color: var(--dark); margin-bottom: 0.8rem; }
+  .length-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .length-box ul li { font-size: 0.85rem; color: var(--text); display: flex; gap: 0.4rem; }
+  .length-box ul li::before { content: '→'; color: var(--pink); flex-shrink: 0; }
+  .resp-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+  .resp-card { background: #fff; border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); border-top: 4px solid var(--pink); }
+  .resp-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--dark); margin-bottom: 0.6rem; }
+  .resp-card p { font-size: 0.87rem; color: var(--muted); }
+  .complaint-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+  .tab-btn { background: #fff; border: 2px solid rgba(233,30,140,0.2); border-radius: 20px; padding: 6px 16px; font-size: 0.82rem; font-weight: 700; cursor: pointer; color: var(--muted); transition: all 0.2s; }
+  .tab-btn.active, .tab-btn:hover { background: var(--pink); color: #fff; border-color: var(--pink); }
+  .complaint-content { margin-top: 1.5rem; }
+  .complaint-panel { display: none; }
+  .complaint-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media(max-width:600px){ .complaint-panel.active { grid-template-columns: 1fr; } }
+  .comp-box { border-radius: var(--radius); padding: 1.3rem; }
+  .comp-box.wrong { background: #ffebee; border-top: 4px solid var(--red); }
+  .comp-box.right { background: #e8f5e9; border-top: 4px solid var(--green); }
+  .comp-box h4 { font-size: 0.8rem; font-weight: 800; margin-bottom: 0.7rem; }
+  .comp-box.wrong h4 { color: var(--red); }
+  .comp-box.right h4 { color: var(--green); }
+  .comp-box p { font-size: 0.88rem; font-style: italic; color: var(--text); }
+  .golden-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+  .golden-card { background: #fff; border-radius: var(--radius); padding: 1.3rem; box-shadow: var(--shadow); text-align: center; }
+  .golden-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .golden-card h3 { font-size: 0.85rem; font-weight: 800; color: var(--dark); margin-bottom: 0.3rem; }
+  .golden-card p { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+  .own-it { background: var(--dark); color: rgba(255,255,255,0.85); border-radius: var(--radius); padding: 1.5rem 2rem; text-align: center; margin-top: 1.5rem; font-size: 1rem; font-style: italic; font-weight: 700; }
+  .own-it span { color: var(--pink); }
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+  .channel-card { background: #fff; border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+  .channel-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .channel-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--dark); margin-bottom: 0.4rem; }
+  .channel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; }
+  .channel-goal { font-size: 0.78rem; font-weight: 700; color: var(--pink); background: var(--pink-light); border-radius: 6px; padding: 3px 8px; display: inline-block; }
+  .checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  @media(max-width:600px){ .checklist-grid { grid-template-columns: 1fr; } }
+  .checklist-box { background: #fff; border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+  .checklist-box h3 { font-size: 0.9rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.7rem; font-size: 0.87rem; color: var(--text); }
+  .check { width: 20px; height: 20px; border-radius: 50%; background: var(--pink-light); border: 2px solid var(--pink); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--pink); font-weight: 900; }
+  footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 2.5rem 1.5rem; }
+  footer .brand { color: var(--pink); font-weight: 900; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  footer .tagline { color: rgba(255,255,255,0.4); font-size: 0.85rem; font-style: italic; margin-bottom: 1rem; }
+  footer a { color: var(--pink); text-decoration: none; }
+  .sep { border: none; border-top: 2px solid rgba(233,30,140,0.08); margin: 0 1.5rem; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">WhichBingo</div>
+  <ul class="nav-links">
+    <li><a href="#quick-start">Quick Start</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#tone">Tone</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="#complaints">Complaints</a></li>
+    <li><a href="#channels">Channels</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div class="hero-tag">Brand Voice & Tone Guide</div>
+  <h1>Sound like <span>WhichBingo</span>.<br>Every time.</h1>
+  <p>No more guesswork. No more "writer's discretion." This is WhichBingo — consistent, recognisable, and always real.</p>
+  <div class="voice-pills">
+    <div class="pill">Smart <span>+</span> Warm <span>+</span> Real <span>+</span> Fair <span>+</span> Fun</div>
+  </div>
+  <div class="scroll-hint"><span class="scroll-arrow">↓</span> scroll to learn the voice</div>
+</div>
+<section id="quick-start">
+  <div class="section-label">Quick Start</div>
+  <h2>If you remember nothing else, remember this.</h2>
+  <p class="subtitle">Six things that define how we write. Hit at least three of the formula in any piece of copy and you're in the right voice.</p>
+  <div class="qs-grid">
+    <div class="qs-card"><div class="qs-num">01</div><h3>The Voice Formula</h3><p>Smart + Warm + Real + Fair + Fun. Hit at least 3 out of 5 in any piece of copy.</p></div>
+    <div class="qs-card"><div class="qs-num">02</div><h3>The Gut Check</h3><p>Clear enough for your nan to get it. Cool enough your mate wouldn't roll their eyes. That's WhichBingo.</p></div>
+    <div class="qs-card"><div class="qs-num">03</div><h3>We Sound Like Sara Cox</h3><p>Warm, down-to-earth, knowledgeable, having a laugh. The designated driver who keeps everyone safe and smiling.</p></div>
+    <div class="qs-card"><div class="qs-num">04</div><h3>Match the Mood</h3><p>Curious → Reassuring. Frustrated → Empathetic. Confident → Efficient. Browsing → Light. Always match your tone to your reader.</p></div>
+    <div class="qs-card"><div class="qs-num">05</div><h3>Complaints = Opportunity</h3><p>Respond as WhichBingo team — never "I". Lead with empathy. Own it if it's ours. Guide if it's theirs.</p></div>
+    <div class="qs-card"><div class="qs-num">06</div><h3>Brand Purpose</h3><p>"Every play matters. Every choice counts." We exist to make bingo safer, clearer, and more enjoyable.</p></div>
+  </div>
+</section>
+<hr class="sep">
+<section id="voice">
+  <div class="section-label">Our Spirit Voice</div>
+  <h2>If WhichBingo were a person...</h2>
+  <div class="spirit-bg">
+    <div class="spirit-quote">"The smart friend who knows the game inside out. Done the homework. Spots the fine print. Still keeps things light. Makes the complicated clear."</div>
+    <p class="spirit-desc">They'd have a warm mug of tea at the table. Approachable, switched-on, and up for a laugh — the friend you'd rely on to plan a holiday for everyone, whose recommendation you'd actually trust.</p>
+    <div class="spirit-grid">
+      <div class="spirit-item"><div class="spirit-icon">🎙️</div><h4>Sara Cox energy</h4><p>Warm, humorous, down-to-earth and chatty. Never stiff. Never corporate.</p></div>
+      <div class="spirit-item"><div class="spirit-icon">🚗</div><h4>The designated driver</h4><p>Calm, clear-headed, keeps the night on track. Everyone gets home smiling.</p></div>
+      <div class="spirit-item"><div class="spirit-icon">🔍</div><h4>We recommend, not sell</h4><p>We don't shout. We guide. We don't hype. We explain.</p></div>
+      <div class="spirit-item"><div class="spirit-icon">☕</div><h4>Real, singular, human</h4><p>Every line sounds like it comes from a real person who genuinely cares.</p></div>
+    </div>
+  </div>
+  <div style="margin-top:2.5rem">
+    <div class="section-label">The Gut Check</div>
+    <h2>Your fastest quality test.</h2>
+    <div class="gut-check"><p>"Is it clear enough for your <span>nan</span> to get it — and cool enough that your <span>mate</span> wouldn't roll their eyes?"</p></div>
+  </div>
+  <div style="margin-top:3rem">
+    <div class="section-label">Voice in Action</div>
+    <h2>The examples that matter.</h2>
+    <p class="subtitle">Read both columns. The gap between them is the WhichBingo voice.</p>
+    <div class="action-grid">
+      <div class="action-col yes">
+        <h3>✅ We sound like this</h3>
+        <ul>
+          <li>"We've checked the small print so you can focus on playing"</li>
+          <li>"It's a great offer but watch those wagering terms"</li>
+          <li>"We love a good bonus, but read the small print first. We know the feeling when you can't cash out"</li>
+          <li>"This site has a great welcome offer but bear in mind that the withdrawal fees may take the shine off a bit"</li>
+          <li>"A great site if you love variety, but it's not ideal if you prefer to deposit lower amounts"</li>
+          <li>"The site is powered by Pragmatic Play, so expect high-quality graphics and good jackpots"</li>
+        </ul>
+      </div>
+      <div class="action-col no">
+        <h3>❌ We never sound like this</h3>
+        <ul>
+          <li>"Click here for the most amazing bonus ever!"</li>
+          <li>"You'll win, guaranteed!"</li>
+          <li>"This is an iGaming paradise"</li>
+          <li>"Bursting with features"</li>
+          <li>"Thrilling, exciting games"</li>
+          <li>"Start your adventure" / "Life-changing" / "Keep spinning the reels"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:3rem">
+    <div class="section-label">The WhichBingo Framework</div>
+    <h2>What makes us us.</h2>
+    <p class="subtitle">Seven qualities. Each one with a real example of what it sounds like in the wild.</p>
+    <table class="fw-table">
+      <thead><tr><th>We are...</th><th>How it sounds</th></tr></thead>
+      <tbody>
+        <tr><td>Honest and straight-talking</td><td>"This site has a great welcome offer but bear in mind that the withdrawal fees may take the shine off a bit"</td></tr>
+        <tr><td>Friendly and conversational</td><td>"We love a good bonus, but read the small print first. We know the feeling when you can't cash out"</td></tr>
+        <tr><td>Knowledgeable and trusted</td><td>"The site is powered by Pragmatic Play, so expect high-quality graphics and good jackpots"</td></tr>
+        <tr><td>Balanced and fair</td><td>"A great site if you love variety, but it's not ideal if you prefer to deposit lower amounts"</td></tr>
+        <tr><td>Witty — when it fits</td><td>"The bingo room is as busy as a buffet table at Christmas!"</td></tr>
+        <tr><td>Community-minded</td><td>"Nothing beats that 'Bingo!' moment, and we're here for all of yours"</td></tr>
+        <tr><td>Responsible and clear</td><td>"It's important for us that you check the T&Cs suit you, so always read the fine print"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<hr class="sep">
+<section id="tone">
+  <div class="section-label">Tone</div>
+  <h2>Same voice. Different mood.</h2>
+  <p class="subtitle">The voice doesn't change. But the tone does — depending on where your reader is emotionally.</p>
+  <div class="tone-grid">
+    <div class="tone-card"><div class="tone-state">Reader is Curious or Cautious</div><p>"If you're new to bingo, we've tested these sites for you"</p></div>
+    <div class="tone-card"><div class="tone-state">Reader is Frustrated</div><p>"We know slow payouts are a pain — here's how this site compares"</p></div>
+    <div class="tone-card"><div class="tone-state">Reader is Confident or Returning</div><p>"If you've already played here, check out this week's newest offers"</p></div>
+    <div class="tone-card"><div class="tone-state">Reader is Browsing for Fun</div><p>"Looking for something new? These slot titles might hit the spot"</p></div>
+    <div class="tone-card"><div class="tone-state">Reader is New to Bingo</div><p>"We've tested the signup bonuses so you know exactly what to expect"</p></div>
+    <div class="tone-card"><div class="tone-state">Reader is Excited</div><p>"That's a great win — which site were you on? We'd love to check it out"</p></div>
+  </div>
+</section>
+<hr class="sep">
+<section id="rules">
+  <div class="section-label">Hard Style Rules</div>
+  <h2>The non-negotiables.</h2>
+  <p class="subtitle">These aren't suggestions. Write to one real, singular reader — use "you" not "players", and speak from "we".</p>
+  <div class="rules-grid">
+    <div class="rules-col always">
+      <h3>✅ Always</h3>
+      <ul>
+        <li>Safeplay (not Safe Play)</li>
+        <li>Signup (not sign-up)</li>
+        <li>90-ball (not 90 ball)</li>
+        <li>Dab (not daub)</li>
+        <li>Contractions — "don't" not "do not"</li>
+        <li>British spelling conventions</li>
+        <li>Specific numbers, not vague language</li>
+        <li>Use "if" for slot features, not "when"</li>
+        <li>Respond as "we" — never "I"</li>
+      </ul>
+    </div>
+    <div class="rules-col never">
+      <h3>🚫 Never</h3>
+      <ul>
+        <li>"Bankroll" — not a British term</li>
+        <li>"Daub" — use "dab"</li>
+        <li>Vague numbers ("a few", "some")</li>
+        <li>Hype language or overpromising</li>
+        <li>AI-sounding or generic copy</li>
+        <li>Guaranteed win language</li>
+        <li>Promos in specific detail</li>
+        <li>"Bonus hunters will love this"</li>
+        <li>"When" for slot features — always "if"</li>
+        <li>Responding as an individual ("I")</li>
+      </ul>
+    </div>
+    <div class="length-box">
+      <h3>📏 On Length</h3>
+      <ul>
+        <li>Length guidance is always in your copy brief</li>
+        <li>No brief? Shorter is almost always better</li>
+        <li>Emails: each line earns the next</li>
+        <li>Socials: short, conversational, no waffle</li>
+        <li>CTAs: lead with a verb — keep it punchy</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:3rem">
+    <div class="section-label">Responsible Gambling Context</div>
+    <h2>Know the rules. Write responsibly.</h2>
+    <div class="resp-cards">
+      <div class="resp-card"><h3>UKGC Stake Limits</h3><p>The UKGC has set a max stake limit on all online slots: £5 per spin for over 25s and £2 per spin for 18–24 year olds. Always write with this context in mind.</p></div>
+      <div class="resp-card"><h3>Always Encourage Safe Play</h3><p>Remind players to stay within their limits. Recommend our safer gambling guide. Encourage use of Safeplay tools. Never use language that implies chasing losses is acceptable.</p></div>
+    </div>
+  </div>
+</section>
+<hr class="sep">
+<section id="complaints">
+  <div class="section-label">Complaints</div>
+  <h2>Handling difficult situations.</h2>
+  <p class="subtitle">Every response represents WhichBingo — not you as an individual. Always respond as "we" or "the WhichBingo team."</p>
+  <div class="complaint-tabs">
+    <button class="tab-btn active" onclick="showTab('slow-payouts',this)">Slow Payouts</button>
+    <button class="tab-btn" onclick="showTab('account-issue',this)">Account Issue</button>
+    <button class="tab-btn" onclick="showTab('aggressive',this)">Aggressive Feedback</button>
+    <button class="tab-btn" onclick="showTab('inaccurate',this)">Inaccurate Review</button>
+    <button class="tab-btn" onclick="showTab('bias',this)">Bias Accusation</button>
+    <button class="tab-btn" onclick="showTab('slow-response',this)">Slow Response</button>
+  </div>
+  <div class="complaint-content">
+    <div class="complaint-panel active" id="slow-payouts">
+      <div class="comp-box wrong"><h4>❌ Wrong</h4><p>"That's an issue with the operator, not us. We just review sites. You need to contact them directly."</p></div>
+      <div class="comp-box right"><h4>✅ Right</h4><p>"Hello, I'm the WhichBingo Admin. We're really sorry to hear you're experiencing delays. We completely understand how frustrating slow payouts can be. While we review and rate operators, we don't have direct control over individual casino operations. The best route is to escalate directly with the operator's support. Could you let us know how long you've been waiting? Your experience helps other players make informed choices."</p></div>
+    </div>
+    <div class="complaint-panel" id="account-issue">
+      <div class="comp-box wrong"><h4>❌ Wrong</h4><p>"We can't help with account issues — that's between you and the casino."</p></div>
+      <div class="comp-box right"><h4>✅ Right</h4><p>"We're sorry you're having trouble with your account. While we don't manage accounts directly, we're here to help point you in the right direction. Have you tried reaching out to the operator's live chat? We'd also love to hear more about your experience — it helps us keep our reviews accurate."</p></div>
+    </div>
+    <div class="complaint-panel" id="aggressive">
+      <div class="comp-box wrong"><h4>❌ Wrong</h4><p>"Please keep your comments respectful or we'll have to remove them."</p></div>
+      <div class="comp-box right"><h4>✅ Right</h4><p>"We can hear how frustrated you are, and we're genuinely sorry you've had this experience. We want to help where we can. Could you tell us a bit more about what happened? We take every piece of feedback seriously — it shapes how we review and rate sites."</p></div>
+    </div>
+    <div class="complaint-panel" id="inaccurate">
+      <div class="comp-box wrong"><h4>❌ Wrong</h4><p>"Our review is correct. We stand by what we've written."</p></div>
+      <div class="comp-box right"><h4>✅ Right</h4><p>"Thank you for flagging this — we always want our reviews to be as accurate as possible. Could you share more details about what you found? We review sites regularly, but player experiences are invaluable for keeping things up to date. We'll look into this."</p></div>
+    </div>
+    <div class="complaint-panel" id="bias">
+      <div class="comp-box wrong"><h4>❌ Wrong</h4><p>"We're completely independent. There's no bias in our reviews."</p></div>
+      <div class="comp-box right"><h4>✅ Right</h4><p>"We understand why transparency matters — it matters to us too. Our reviews are based on hands-on testing and player feedback. We're always open to hearing what's shaped your impression. What specifically gave you that feeling? We'd genuinely like to understand."</p></div>
+    </div>
+    <div class="complaint-panel" id="slow-response">
+      <div class="comp-box wrong"><h4>❌ Wrong</h4><p>"We're a small team and get a lot of messages. We'll get to it when we can."</p></div>
+      <div class="comp-box right"><h4>✅ Right</h4><p>"We're sorry for the delay — that's not the experience we want for you. Thank you for your patience. We're looking into this now and will follow up as soon as we can. In the meantime, is there anything we can help clarify?"</p></div>
+    </div>
+  </div>
+  <div style="margin-top:3rem">
+    <div class="section-label">The Golden Rules</div>
+    <h2>For every difficult response.</h2>
+    <p class="subtitle">Can't tick all five? Rewrite it.</p>
+    <div class="golden-grid">
+      <div class="golden-card"><div class="golden-icon">💛</div><h3>Lead with empathy</h3><p>"We understand," "We're sorry to hear," "That must be frustrating"</p></div>
+      <div class="golden-card"><div class="golden-icon">🏷️</div><h3>Identify as WhichBingo</h3><p>Always "WhichBingo Admin" or "the WhichBingo team"</p></div>
+      <div class="golden-card"><div class="golden-icon">🔦</div><h3>Clarify our role</h3><p>Explain patiently what we do and don't control</p></div>
+      <div class="golden-card"><div class="golden-icon">🛠️</div><h3>Offer what we CAN do</h3><p>Always give something useful, even if it's just guidance</p></div>
+      <div class="golden-card"><div class="golden-icon">🤝</div><h3>End supportively</h3><p>"We hope this gets resolved" — leave the door open</p></div>
+    </div>
+    <div class="own-it">"Own it. <span>Fix it.</span> Learn from it." — When we mess up, our response is a chance to show our values in action.</div>
+  </div>
+</section>
+<hr class="sep">
+<section id="channels">
+  <div class="section-label">Channel Guidelines</div>
+  <h2>Same brand. Right format.</h2>
+  <p class="subtitle">The voice stays consistent across every channel.</p>
+  <div class="channel-grid">
+    <div class="channel-card"><div class="channel-icon">🖥️</div><h3>UX Copy</h3><p>No sales or marketing lingo. Guide the user clearly. Add wit when it entertains without distracting.</p><span class="channel-goal">Goal: clarity first, personality second</span></div>
+    <div class="channel-card"><div class="channel-icon">📧</div><h3>Emails</h3><p>Get straight to the point. Every line earns the next. Always think about the mood your audience will be in.</p><span class="channel-goal">Goal: earn every sentence</span></div>
+    <div class="channel-card"><div class="channel-icon">📱</div><h3>Socials</h3><p>Be the friend who actually plays. Empathetic if frustrated, celebratory if winning, informative if confused.</p><span class="channel-goal">Goal: short, human, real</span></div>
+    <div class="channel-card"><div class="channel-icon">🔘</div><h3>CTAs</h3><p>Lead with verbs. "Find out", "Compare", "Check". Never passive, never vague.</p><span class="channel-goal">Goal: action, not decoration</span></div>
+    <div class="channel-card"><div class="channel-icon">📰</div><h3>News Articles</h3><p>Know your message and stick to it. Fun for pop culture — factual for regulation topics.</p><span class="channel-goal">Goal: fun where it fits, factual where it counts</span></div>
+    <div class="channel-card"><div class="channel-icon">💬</div><h3>Comments & Reviews</h3><p>Casual, empathetic and smart. Always clarify who we are. "Hello, I'm the WhichBingo Admin..."</p><span class="channel-goal">Goal: human, helpful, clear</span></div>
+  </div>
+  <div style="margin-top:3rem">
+    <div class="section-label">Before You Publish</div>
+    <h2>The final check.</h2>
+    <div class="checklist-grid">
+      <div class="checklist-box">
+        <h3>For all copy:</h3>
+        <div class="checklist-item"><div class="check">✓</div><span>Does it hit at least 3 of 5 in the voice formula?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Would your nan understand it?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Would your mate not roll their eyes?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Does it sound like a real person wrote it?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Is the tone matched to the reader's mood?</span></div>
+      </div>
+      <div class="checklist-box">
+        <h3>For difficult responses:</h3>
+        <div class="checklist-item"><div class="check">✓</div><span>Does this sound understanding and compassionate?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Have I explained our role without being defensive?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Am I speaking as WhichBingo ("we"), not myself ("I")?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Would I want to receive this if I was frustrated?</span></div>
+        <div class="checklist-item"><div class="check">✓</div><span>Does this uphold our values: transparent, reliable, trusted, community?</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="brand">WhichBingo</div>
+  <div class="tagline">"Every play matters. Every choice counts."</div>
+  <p style="font-size:0.85rem">Questions? Email Esther at <a href="mailto:estherbarnett.rubin@gdcgroup.com">estherbarnett.rubin@gdcgroup.com</a></p>
+</footer>
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.complaint-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
