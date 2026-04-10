@@ -15,7 +15,7 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  return new NextResponse("Authentication required", {
+  return new Response(null, {
     status: 401,
     headers: {
       "WWW-Authenticate": 'Basic realm="WhichBingo Voice Guide"',
