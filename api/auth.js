@@ -10,8 +10,7 @@ export default async function handler(req) {
       const [user, pass] = decoded.split(":");
 
       if (user === "OGX-WB" && pass === "WB26") {
-        // Fetch the static index.html and serve it
-        const url = new URL("/index.html", req.url);
+        const url = new URL("/_static/index.html", req.url);
         const res = await fetch(url);
         return new Response(res.body, {
           status: 200,
