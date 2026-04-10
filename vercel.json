@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/api/auth" },
+    { "source": "/((?!api|_next|favicon\\.ico).*)", "destination": "/api/auth" }
+  ]
+}

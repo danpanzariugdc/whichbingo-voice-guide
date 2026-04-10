@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+export const config = { runtime: "edge" };
 
-export function proxy(req: NextRequest) {
+export default async function handler(req) {
   const authHeader = req.headers.get("authorization");
 
   if (authHeader) {
@@ -10,19 +10,21 @@ export function proxy(req: NextRequest) {
       const [user, pass] = decoded.split(":");
 
       if (user === "OGX-WB" && pass === "WB26") {
-        return NextResponse.next();
+        // Fetch the static index.html and serve it
+        const url = new URL("/index.html", req.url);
+        const res = await fetch(url);
+        return new Response(res.body, {
+          status: 200,
+          headers: { "Content-Type": "text/html; charset=utf-8" },
+        });
       }
     }
   }
 
-  return new Response(null, {
+  return new Response("Authentication required", {
     status: 401,
     headers: {
       "WWW-Authenticate": 'Basic realm="WhichBingo Voice Guide"',
     },
   });
 }
-
-export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
-};
